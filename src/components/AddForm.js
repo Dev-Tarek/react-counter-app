@@ -41,6 +41,10 @@ export default class FormDialog extends React.Component {
   }
 
   render() {
+    const check = (!(this.state.textField.count > 0 &&
+                    /^\d+$/.test(this.state.textField.count))
+                    || !this.state.textField.name
+                  );
     return (
       <div style={{marginLeft: "auto"}}>
         <Button onClick={this.handleClickOpen} color='default' variant='raised'>{this.props.title}</Button>
@@ -66,7 +70,12 @@ export default class FormDialog extends React.Component {
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={()=>this.props.handle(this.state.textField, this.handleClose)} color="primary">
+            <Button
+              disabled={check}
+              onClick={()=>this.props.handle(this.state.textField, this.handleClose)}
+              color="primary"
+              variant="contained"
+            >
               Add
             </Button>
           </DialogActions>

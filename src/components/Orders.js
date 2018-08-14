@@ -51,7 +51,7 @@ export default class Orders extends React.Component{
         order.id = this.state.id;
         order.name = obj.name;
         order.desc = obj.desc;
-        order.img = obj.img;
+        order.img = obj.img || 'static/imgs/cards/order.jpg';
         order.count = obj.count;
         const orders = [...this.state.orders];
         orders.push(order);
