@@ -41,7 +41,6 @@ const styles = {
   cardDone: {
     maxWidth: 330,
     width: '320px',
-    minHeight: '340px',
     backgroundColor: 'rgba(255,255,255,.5)'
   }
 };
