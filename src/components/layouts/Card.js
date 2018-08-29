@@ -11,11 +11,11 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import DeleteIcon from '@material-ui/icons/Delete';
 
+
 const styles = {
   card: {
     maxWidth: 330,
     width: '320px',
-    minHeight: '340px'
   },
   cardDiv: {
     margin: '10px',
@@ -24,7 +24,6 @@ const styles = {
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
   },
   counterBlock: {
     marginLeft: 'auto',
@@ -70,15 +69,21 @@ class CounterCard extends React.Component {
 
     render(){
     const { classes } = this.props;
+    
     const delButton = (<Button 
             variant="fab" color="default" aria-label="Sub" mini onClick={()=>this.props.delete(this.state.id)}>
             <DeleteIcon />
         </Button>)
+
     return (
         <div className={classes.cardDiv}>
-        <Card className={this.state.count?classes.card:classes.cardDone}>
+        <Card
+            className={this.state.count? classes.card : classes.cardDone}
+            style={{minHeight: this.props.thumb? '340px' : null}}
+        >
             <CardMedia
             className={classes.media}
+            style={{ paddingTop: this.props.thumb? '56.25%' : null,}}
             image={this.state.img}
             title="Order Image"
             />

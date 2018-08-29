@@ -23,8 +23,8 @@ function SimpleAppBar(props) {
           <Typography variant="headline" color="inherit" align='center'>
             {props.title}
           </Typography>
-          {props.input}
           {props.button}
+          {props.thumbToggle}
         </Toolbar>
       </AppBar>
     </div>
